@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 
 void main()=>runApp(MyApp());
-
+/**
+ * 这是对话框的使用示例
+ * */
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

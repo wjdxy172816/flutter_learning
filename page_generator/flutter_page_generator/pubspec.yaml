@@ -41,9 +41,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/2x/shili.png #定义资源时,一定要添加这个资源在项目中的相对完全路径.使用时就是用这个相对完全路径来表示即可
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
