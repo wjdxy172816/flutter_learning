@@ -63,7 +63,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     //初始化动画控制器
     controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
-
     //初始化进场动画,从坐标到屏幕中间.
     animation = Tween(begin: -1.0, end: 0.0).animate(controller)
       ..addListener(() {
@@ -72,7 +71,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         });
       })
       ..addStatusListener(myListener);
-    //执行动画
+    //开始执行动画
     controller.forward();
   }
 

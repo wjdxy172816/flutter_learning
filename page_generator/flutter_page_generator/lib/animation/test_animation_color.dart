@@ -19,7 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
-
   Animation<Color> _animation;
   AnimationController _controller;
   @override
@@ -35,7 +34,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       ),
     );
   }
-
   @override
   void initState() {
     super.initState();
@@ -47,8 +45,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       setState(() {});
     })
     ..addStatusListener((status){
+      //动画结束后,反转执行动画
       if(status ==AnimationStatus.completed){
         _controller.reverse();
+        //在反转动画执行结束后,动画消失,然后又重新开始执行动画
       }else if(status ==AnimationStatus.dismissed){
         _controller.forward();
       }
