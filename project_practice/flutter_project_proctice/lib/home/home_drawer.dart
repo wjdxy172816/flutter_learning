@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:osc_proctice/more/about_page.dart';
+import 'package:osc_proctice/more/black_list.dart';
+import 'package:osc_proctice/more/setting_page.dart';
+import 'package:osc_proctice/publish_tweet/publish_tweet_page.dart';
 
-import 'package:flutter_project_proctice/more/about_page.dart';
-import 'package:flutter_project_proctice/more/black_list.dart';
-import 'package:flutter_project_proctice/more/setting_page.dart';
-import 'package:flutter_project_proctice/publish_tweet/publish_tweet_page.dart';
 
 
 class HomeDrawer extends StatelessWidget {

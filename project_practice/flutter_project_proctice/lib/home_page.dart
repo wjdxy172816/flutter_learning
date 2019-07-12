@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_proctice/resources/colors/app_color.dart';
+import 'package:osc_proctice/resources/colors/app_color.dart';
 import 'home/bottom_widget.dart';
 import 'home/home_drawer.dart';
 import 'homepages/discover_page.dart';
