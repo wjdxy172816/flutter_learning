@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:osc_proctice/resources/colors/about_networks.dart';
+import 'package:osc_proctice/resources/constant/user_info.dart';
 import 'package:osc_proctice/utils/net_utils.dart';
+import 'package:osc_proctice/utils/save_data_utils.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -41,36 +43,12 @@ class _LoginPageState extends State<LoginPage> {
         params['code'] = '$code';
         params['dataType'] = 'json';
         NetUtils.get(NetUrl.AUTH_TOKEN, params).then((result){
-          //print("result is $result");
-          //{"access_token":"980e26a2-81e6-45d5-824b-abdb61d9df60","refresh_token":"de4bab6a-72f7-4680-b289-fb1e18a53ed8","uid":3304814,"token_type":"bearer","expires_in":604694}
           Map<String,dynamic> mapResult =json.decode(result);
-          Future<SharedPreferences> future = SharedPreferences.getInstance();
-          mapResult.forEach((key,value){
-            future.then((sp){
-              print("save data==> $key=$value");
-              if(value is String){
-                sp.setString(key, value);
-              }else if(value is int){
-                sp.setInt(key, value);
-              }else if(value is bool){
-                sp.setBool(key, value);
-              }else if(value is double){
-                sp.setDouble(key, value);
-              }
-            });
-          });
+          Future<SharedPreferences> future =SpSaveDataUtil.saveMap(mapResult);
+          future.then((sp)=>sp.setBool(UserLoginInfoKey.IS_LOGIN, true));//保存登录成功的状态
+          //登录成功后返回界面并通知刷新,需要注意的是,pop中返回的参数是什么类型,接收处就要用什么类型,否则会转换异常.
+          Navigator.pop(context,"refresh_page");
         });
-        /*Function f =(data) async{
-          SharedPreferences sp =await SharedPreferences.getInstance();
-          if(data is String){
-            sp.setString("key", data);
-          }else if(data is bool){
-            sp.setBool("bool", data);
-          }else if(data is int){
-            sp.setInt("bool", data);
-          }
-        };
-        f("abc");*/
       }
     });
   }

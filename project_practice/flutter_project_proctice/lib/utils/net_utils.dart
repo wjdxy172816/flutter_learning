@@ -1,5 +1,6 @@
 
-import 'package:http/http.dart' as http;//引用网络库
+import 'package:http/http.dart' as http;
+import 'package:osc_proctice/resources/colors/about_networks.dart';//引用网络库
 
 class NetUtils{
 
@@ -10,7 +11,7 @@ class NetUtils{
       params?.forEach((key,value){
         sb.write("$key=$value&");
       });
-      String requestPath =url+""+sb.toString().substring(0,sb.length-1);
+      String requestPath =NetEvnParams.API_HOST+url+""+sb.toString().substring(0,sb.length-1);
       print("request url =$requestPath");
       http.Response  response =await http.get(requestPath);
       return response.body;
@@ -19,6 +20,7 @@ class NetUtils{
 
   static Future<String> post(String url,Map<String,dynamic> params) async{
     if(url!=null){
+      url =NetEvnParams.API_HOST+url;
       http.Response  response =await http.post(url,body: params);
       return response.body;
     }

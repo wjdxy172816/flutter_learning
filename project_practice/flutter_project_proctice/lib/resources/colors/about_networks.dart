@@ -8,7 +8,14 @@ abstract class NetUrl{
   static const String AUTH_LOGIN=NetEvnParams.API_HOST+"/action/oauth2/authorize";
 
   //获取 AccessToken
-  static const String AUTH_TOKEN =NetEvnParams.API_HOST+"/action/openapi/token";
+  static const String AUTH_TOKEN ="/action/openapi/token";
+
+  //账户信息
+  static const String USER_ACCOUNT ="/action/openapi/user";
+
+  //用户信息
+  static const String USER_INFO ="/action/openapi/user_information";
+
 
 }
 
