@@ -1,6 +1,6 @@
 
 import 'package:http/http.dart' as http;
-import 'package:osc_proctice/resources/colors/about_networks.dart';//引用网络库
+import 'package:osc_proctice/resources/constant/about_networks.dart';//引用网络库
 
 class NetUtils{
 

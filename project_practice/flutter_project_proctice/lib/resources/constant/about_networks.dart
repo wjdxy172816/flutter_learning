@@ -16,6 +16,8 @@ abstract class NetUrl{
   //用户信息
   static const String USER_INFO ="/action/openapi/user_information";
 
+  //用户信息详情
+  static const String USER_INFO_DETAIL ="/action/openapi/my_information";
 
 }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:osc_proctice/resources/colors/about_networks.dart';
+import 'package:osc_proctice/resources/constant/about_networks.dart';
 import 'package:osc_proctice/resources/constant/user_info.dart';
 import 'package:osc_proctice/utils/net_utils.dart';
 import 'package:osc_proctice/utils/save_data_utils.dart';

@@ -1,5 +1,6 @@
 
 
+import 'package:osc_proctice/beans/user_about_beans.dart' show UserAccount;
 import 'package:osc_proctice/resources/constant/user_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -55,21 +56,47 @@ class SpSaveDataUtil{
   }
 
   //保存获取的个人信息
-  static saveUserInfo(Map<String,dynamic> userinfo){
-    saveMap(userinfo);
+  static UserAccount saveUserInfo(Map<String,dynamic> userinfo,{bool isLogin =false}){
+
+    String name =userinfo[UserInfoKey.NAME];
+    String avater =userinfo[UserInfoKey.AVATAR];
+    String gender =userinfo[UserInfoKey.GENDER];
+    String location =userinfo[UserInfoKey.LOCATION];
+    int id =userinfo[UserInfoKey.ID];
+    String email =userinfo[UserInfoKey.EMAIL];
+    String url =userinfo[UserInfoKey.URL];
+
+    Future<SharedPreferences> future = SharedPreferences.getInstance();
+    future.then((sp){
+      sp.setString(UserInfoKey.NAME, name);
+      sp.setString(UserInfoKey.AVATAR, avater);
+      sp.setString(UserInfoKey.GENDER, gender);
+      sp.setString(UserInfoKey.LOCATION, location);
+      sp.setInt(UserInfoKey.ID, id);
+      sp.setString(UserInfoKey.EMAIL, email);
+      sp.setString(UserInfoKey.URL, url);
+      sp.setBool(UserLoginInfoKey.IS_LOGIN, isLogin);
+    });
+    UserAccount account =UserAccount(gender: gender,name: name,location: location,
+    id: id,avatar: avater,email:email,url: url);
+
+    return account;
   }
 
   //获取用户的个人信息
-  static Future<Map<String,dynamic>> getUserInfo() async{
+  static Future<UserAccount> getUserAccount() async{
+
     SharedPreferences sp = await SharedPreferences.getInstance();
-    Map<String,dynamic> userInfo =Map();
-    userInfo[UserInfoKey.NAME] =sp.getString(UserInfoKey.NAME);
-    userInfo[UserInfoKey.AVATAR] =sp.getString(UserInfoKey.AVATAR);
-    userInfo[UserInfoKey.GENDER] =sp.getString(UserInfoKey.GENDER);
-    userInfo[UserInfoKey.LOCATION] =sp.getString(UserInfoKey.LOCATION);
-    userInfo[UserInfoKey.ID] =sp.getInt(UserInfoKey.ID);
-    userInfo[UserInfoKey.EMAIL] =sp.getString(UserInfoKey.EMAIL);
-    userInfo[UserInfoKey.URL] =sp.getString(UserInfoKey.URL);
-    return userInfo;
+
+    String name =sp.getString(UserInfoKey.NAME);
+    String avater =sp.getString(UserInfoKey.AVATAR);
+    String gender =sp.getString(UserInfoKey.GENDER);
+    String location =sp.getString(UserInfoKey.LOCATION);
+    int id =sp.getInt(UserInfoKey.ID);
+    String email =sp.getString(UserInfoKey.EMAIL);
+    String url =sp.getString(UserInfoKey.URL);
+    UserAccount account =UserAccount(gender: gender,name: name,location: location,
+        id: id,avatar: avater,email:email,url: url);
+    return account;
   }
 }
