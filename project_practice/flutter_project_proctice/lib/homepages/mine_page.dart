@@ -186,7 +186,13 @@ class _MinePageState extends State<MinePage> {
                       ),
                     ),
               onTap: () {
-                _login();
+                SpSaveDataUtil.isLogin().then((isLogin){
+                  if(isLogin){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AccountDetailPage()));
+                  }else{
+                    _login();
+                  }
+                });
               },
             ),
             SizedBox(

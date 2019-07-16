@@ -19,6 +19,9 @@ abstract class NetUrl{
   //用户信息详情
   static const String USER_INFO_DETAIL ="/action/openapi/my_information";
 
+  //获取私信列表
+  static const String GET_PRIVITE_MESSAGE_LIST ="/action/openapi/message_list";
+
 }
 
 abstract class NetEvnParams{
