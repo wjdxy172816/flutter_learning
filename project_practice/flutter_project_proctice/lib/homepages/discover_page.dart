@@ -2,8 +2,6 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:osc_proctice/common_page/common_web_page.dart';
 import 'package:osc_proctice/common_page/sensors_page.dart';
-import 'package:osc_proctice/resources/colors/app_color.dart';
-import 'package:sensors/sensors.dart';
 
 class DiscoverPage extends StatefulWidget {
   @override
@@ -86,8 +84,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SensorsPage()));
   }
 
-  void sacn() async{
-    Future<String> result =BarcodeScanner.scan();
+  Future sacn() async{
+    String result =await BarcodeScanner.scan();
     print(result);
   }
 }

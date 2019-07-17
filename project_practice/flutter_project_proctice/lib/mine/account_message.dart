@@ -33,11 +33,11 @@ class _AccountMessagePageState extends State<AccountMessagePage> {
           ),
           iconTheme: IconThemeData(color: Color(AppColor.WHITE_COLOR)),
           bottom: TabBar(tabs: titleNames.map((name){
-            return Text(name,style: TextStyle(
+            return Tab(text: name,)/*Text(name,style: TextStyle(
               color: Color(AppColor.WHITE_COLOR),
               wordSpacing: 10
-            ),);
-          }).toList()),
+            ),)*/;
+          }).toList(),labelColor: Color(AppColor.WHITE_COLOR),indicatorColor: Color(AppColor.RED_COLOR),),
         ),
           body: TabBarView(children:[//body是需要动态化的,不能进行初始设置,否则的话界面就不刷新了.
             Center(
