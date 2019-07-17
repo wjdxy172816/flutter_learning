@@ -30,7 +30,8 @@ dependencies:
   event_bus: ^1.1.0 #
   barcode_scan: ^1.0.0 #扫码功能
   sensors: ^0.4.0+1 #传感器
-  vibration: ^1.1.0
+  vibration: ^1.1.0 #震动
+  image_picker: ^0.6.0+17 #图片选择
 
 dev_dependencies:
   flutter_test:

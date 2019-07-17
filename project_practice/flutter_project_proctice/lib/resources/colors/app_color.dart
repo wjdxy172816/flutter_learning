@@ -10,4 +10,11 @@ abstract class AppColor{
 
   //红色
   static const int RED_COLOR =0xffff0000;
+
+  //黄色
+  static const int YELLOW_COLOR =0xffffff00;
+
+  //蓝色
+  static const int BLUE_COLOR =0xff00FFFF;
+
 }
